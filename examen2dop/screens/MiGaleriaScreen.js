@@ -1,0 +1,76 @@
+import { View, Text, StyleSheet} from 'react-native'
+import React, { useState } from 'react'
+import { Button, ImageBackground, ScrollView } from 'react-native-web';
+
+export default function MiGaleriaScreen() {
+    const [screen, screenSet] = useState('menu');
+    const [title, titleSet] = useState();
+    const [detalles, detallesSet] = useState();
+  
+
+    const img1 = require('../assets/img/Abismo.jpg');
+    const img2 = require('../assets/img/Dados.png');
+    const img3 = require('../assets/img/hornet 3.jpg');
+    const img4 = require('../assets/img/Hornet con capa blanca.jpg');
+    const img5 = require('../assets/img/Hornet.jpg');
+    const img6 = require('../assets/img/Hornet.png');
+
+
+    const mostrarAlerta = () => {
+        if(detalles.trim() === 'web'){
+        alert('Descripcion')
+        }
+        else{
+            Alert.alert(
+                'Hola'
+            )
+        }
+    }
+   
+
+    return(
+        <View>
+            <View style={styles.separacion}>
+                <ImageBackground
+                    source={img1}
+                    rezideMode= 'cover'
+                    imageStyle={styles.splashImage}
+                    style={styles}
+                >
+                 
+                </ImageBackground>
+
+                <ImageBackground
+                    source={img2}
+                    rezideMode= 'cover'
+                    imageStyle={styles.splashImage}
+                    style={styles}
+                >
+                    <Button title='Ver detalles' onPress={mostrarAlerta}/>
+                </ImageBackground>
+            </View>
+          
+        </View>
+    )
+ 
+}
+
+const styles = StyleSheet.create({
+    splashImage:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+        
+    },
+
+    image:{
+
+    },
+
+    separacion:{
+        marginBottom: 20
+    }
+
+});
+
